@@ -56,5 +56,7 @@ file_definitions ::=
 	|	file_definitions file_definition
 	;
 
-file_definition ::= FILE LBRACE STRING_LITERAL COLON SOURCE FARROW STRING_LITERAL RBRACE ;
+file_definition ::= FILE LBRACE STRING_LITERAL:file COLON SOURCE FARROW STRING_LITERAL:source RBRACE {:
+  PuppetClient.UpdateFileFromSource(file, source);
+:} ;
 

@@ -34,12 +34,20 @@ public class PuppetClient {
     }, 0, 300, TimeUnit.SECONDS);
   }
 
+  public static void UpdateFileFromSource(String file, String source) {
+        System.out.println("Fetching ["+file+"] from ["+source+"]");
+  }
+
   private static void action() {
       try {
         System.out.println("Fetching configuration from ["+url+"]");
         String config = getConfig(url);
 
         Scanner scanner = new Scanner(new UnicodeEscapes(new StringReader(config)));
+        Symbol s;
+        do {
+          s = scanner.debug_next_token();
+        } while (s.sym != sym.EOF);
 
         System.out.println("No errors.");
       }

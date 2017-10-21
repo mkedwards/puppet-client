@@ -18,7 +18,7 @@ CUP        = $(JAVA) -jar $(CUPJAR)
 all: test jar
 
 jar: compile
-	jar cvfm PuppetClient.jar manifest.txt UnicodeEscapes.class  PuppetClient.class
+	jar cvfm PuppetClient.jar manifest.txt *.class
 
 test: lexer-output.txt
 	@(diff lexer-output.txt lexer-output.good && echo "Test OK!") || echo "Test failed!"
