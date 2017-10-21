@@ -1,0 +1,2 @@
+Main-Class: PuppetClient
+Class-Path: /usr/share/java/cup-0.11a.jar /usr/share/java/commons-httpclient.jar /usr/share/java/httpcore.jar

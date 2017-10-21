@@ -1,0 +1,60 @@
+import java_cup.runtime.*;
+
+
+parser code  {: 
+  public void report_error(String message, Object info) {
+    StringBuilder m = new StringBuilder("Error ");
+
+    if (info instanceof java_cup.runtime.Symbol) 
+      m.append( "("+info.toString()+")" );
+     
+    m.append(" : "+message);
+   
+    System.out.println(m);
+  }
+   
+  public void report_fatal_error(String message, Object info) {
+    report_error(message, info);
+    throw new RuntimeException("Fatal Syntax Error");
+  }
+:};
+
+terminal LBRACE, RBRACE;
+terminal FARROW, COLON;
+terminal SOURCE;
+terminal FILE;
+
+terminal java.lang.Number INTEGER_LITERAL;
+terminal java.lang.Number FLOATING_POINT_LITERAL;
+terminal java.lang.String STRING_LITERAL;
+
+non terminal goal;
+non terminal literal;
+non terminal configuration_file;
+non terminal file_definitions_opt;
+non terminal file_definitions;
+non terminal file_definition;
+
+start with goal;
+
+goal ::=	configuration_file
+	;
+
+literal ::=	INTEGER_LITERAL
+	|	FLOATING_POINT_LITERAL
+	|	STRING_LITERAL
+	;
+
+configuration_file ::=
+		file_definitions_opt 
+		;
+
+file_definitions_opt   ::= file_definitions   | ;
+
+file_definitions ::= 
+		file_definition
+	|	file_definitions file_definition
+	;
+
+file_definition ::= FILE LBRACE STRING_LITERAL COLON SOURCE FARROW STRING_LITERAL RBRACE ;
+

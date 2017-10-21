@@ -1,0 +1,36 @@
+Lexing [sample.puppet]
+line:1 col:1 --file--FILE--
+token: line 1, column 1, sym: 7
+line:1 col:6 --{--LBRACE--
+token: line 1, column 6, sym: 2
+line:1 col:19 --"--STRING_LITERAL--
+token: line 1, column 19, sym: 10, value: '/tmp/hello'
+line:1 col:20 --:--COLON--
+token: line 1, column 20, sym: 5
+line:2 col:1 --source--SOURCE--
+token: line 2, column 1, sym: 6
+line:2 col:8 --=>--FARROW--
+token: line 2, column 8, sym: 4
+line:2 col:41 --"--STRING_LITERAL--
+token: line 2, column 41, sym: 10, value: 'http://host.com/path/to/hello'
+line:3 col:1 --}--RBRACE--
+token: line 3, column 1, sym: 3
+line:4 col:1 --file--FILE--
+token: line 4, column 1, sym: 7
+line:4 col:6 --{--LBRACE--
+token: line 4, column 6, sym: 2
+line:4 col:21 --"--STRING_LITERAL--
+token: line 4, column 21, sym: 10, value: '/tmp/foo/bar'
+line:4 col:22 --:--COLON--
+token: line 4, column 22, sym: 5
+line:5 col:1 --source--SOURCE--
+token: line 5, column 1, sym: 6
+line:5 col:8 --=>--FARROW--
+token: line 5, column 8, sym: 4
+line:5 col:35 --"--STRING_LITERAL--
+token: line 5, column 35, sym: 10, value: 'http://host.com/bar/foo'
+line:6 col:1 --}--RBRACE--
+token: line 6, column 1, sym: 3
+line:7 col:1 ----EOF--
+token: line 7, column 1, sym: 0
+No errors.
